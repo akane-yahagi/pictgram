@@ -30,7 +30,7 @@ h1, h2 {
         %は親要素の幅に依存。
         ブラウザ幅1200px, 親要素幅1000pxの場合
         子要素のwidthは100vw(1200px)と100%(1000px)で異なる
-      vhはheight ver. そのほかnmin, vmaxがある*/
+      vhはheight ver. そのほかvmin, vmaxがある*/
     background-image: url('bg-top.png');
     background-position: center;
     background-repeat: no-repeat;
@@ -82,4 +82,23 @@ h1, h2 {
     position: fixed;
     width: 100%;
     z-index: 10000;
+}
+
+/*navigation*/
+.navbar-transparent {
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    a {
+        color: #fff !important;
+        /*aタグないけどデフォルトでは青だから一応記入？*/
+    }
+    
+    .navbar-brand {
+        padding: 0;
+        margin-top: 15px;
+    }
+    
+    img {
+        height: 40px;
+    }
 }
