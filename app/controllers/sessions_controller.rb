@@ -4,10 +4,11 @@ class SessionsController < ApplicationController
   
   #sessionはブラウザを閉じれば自動的に終了する
   def create
-    user = User.find_by(email: session_params[:email])
-    #params[:session][:email]でセッションの値を取り出す
+    user = User.find_by(email_params)
     
-    if user && user.authenticate(session_params[:password])
+    if user && user.authenticate(password_params[:password])
+      #user.authenticate(引数)の引数はpassword文字列でないといけないため[:password]が必要
+      
       log_in(user)
       #メソッドの呼び出し
       redirect_to root_url, success: "ログインに成功しました"
@@ -33,8 +34,12 @@ class SessionsController < ApplicationController
     @current_user = nil
   end
   
-  def session_params
-    params.require(:session).permit(:email, :password)
+  def email_params
+    params.require(:session).permit(:email)
+  end
+  
+  def password_params
+    params.require(:session).permit(:password)
   end
     
 end
