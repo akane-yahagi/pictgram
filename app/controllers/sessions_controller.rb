@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
       
       log_in(user)
       #メソッドの呼び出し
-      redirect_to root_url, success: "ログインに成功しました"
+      redirect_to topics_url, success: "ログインに成功しました"
+      #教材はroot_urlにredirectだけどtopics_urlに変更
     else
       flash.now[:danger] = "ログインに失敗しました"
       render :new

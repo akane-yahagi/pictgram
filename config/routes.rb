@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
+  
   get 'sessions/new'
   
   root 'pages#index'
   get 'pages/help'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :users
   
   #UserリソースはUserモデルを介してDB上の永続的データにアクセスする
   #Sessionリソースはcokkiesを保存場所として使う
@@ -12,4 +11,8 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+  
+  resources :users
+  resources :topics
+  
 end
