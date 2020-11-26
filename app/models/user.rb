@@ -9,4 +9,8 @@ class User < ApplicationRecord
     validates :password, presence: true, format: {with: VALID_PASSWORD_REGEX}
     
     has_many :topics
+    has_many :favorites
+    has_many :favorite_topics, through: :favorites, source: 'topic'
+    #favoritesモデルはuser_idとtopic_idをもつ
+    #user.favorite_topicsはuser_idがfavoritesモデルでtopic_idが入ったtopic内容を取得できる?
 end

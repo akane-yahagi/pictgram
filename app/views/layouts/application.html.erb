@@ -26,13 +26,18 @@
           <!-- navbar-navはliタグを横並びにさせる -->
           <% if logged_in? %>
             <li>
-              <%= link_to "#" do %>
+              <%= link_to favorites_index_path do %>
                 <%= image_tag "icons/heart.png" %>
               <% end %>
             </li>
             <li>
               <%= link_to new_topic_path do %>
                 <%= image_tag "icons/camera.png" %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to topics_path do %>
+                <%= image_tag "icons/topics-index.png" %>
               <% end %>
             </li>
             <li>

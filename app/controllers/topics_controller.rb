@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   before_action :authenticate_user
   
   def index
-    @topics = Topic.all
+    @topics = Topic.all.includes(:favorite_users)
   end
   
   def new
@@ -11,7 +11,7 @@ class TopicsController < ApplicationController
   
   def create
     @topic = current_user.topics.new(topic_params)
-    #これなんでTopicじゃなくてtopics？
+    #Userクラスでhas_many:topicsを記入しているからtopics(=Topicクラス)
     
     if @topic.save
       redirect_to topics_url, success: "投稿に成功しました"
