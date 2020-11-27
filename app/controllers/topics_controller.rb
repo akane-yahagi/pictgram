@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   before_action :authenticate_user
   
   def index
-    @topics = Topic.all.includes(:favorite_users)
+    @topics = Topic.all.includes(:favorite_users, :comment_users)
   end
   
   def new

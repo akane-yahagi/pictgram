@@ -152,5 +152,17 @@ h1, h2 {
             height: 30px;
             margin-left: 20px;
         }
+        .comment-list {
+            padding: 5px 20px;
+            font-size: 25px;
+        }
+        .comment-text {
+            padding: 2px 20px;
+        }
     }
+}
+
+/*comment/new*/
+.comment-new-wrapper {
+    padding-top: 120px;
 }

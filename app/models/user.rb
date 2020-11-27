@@ -13,4 +13,6 @@ class User < ApplicationRecord
     has_many :favorite_topics, through: :favorites, source: 'topic'
     #favoritesモデルはuser_idとtopic_idをもつ
     #user.favorite_topicsはuser_idがfavoritesモデルでtopic_idが入ったtopic内容を取得できる?
+    has_many :comments
+    has_many :comments_topics, through: :comments, source: 'topic'
 end
